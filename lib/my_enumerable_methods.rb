@@ -30,6 +30,10 @@ module Enumerable
     return flag
   end
 
+  def my_none?(&block)
+    !self.my_any?(&block)
+  end
+
 end
 
 # You will first have to define my_each
