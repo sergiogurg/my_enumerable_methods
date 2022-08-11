@@ -9,7 +9,9 @@ end
 class Array
   # Define my_each here
   def my_each
-    yield
+    for value in self do
+      yield value
+    end
     self
   end
 end
