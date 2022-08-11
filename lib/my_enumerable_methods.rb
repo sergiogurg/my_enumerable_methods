@@ -1,7 +1,12 @@
 module Enumerable
   # Your code goes here
   def my_each_with_index
-    yield
+    idx = 0
+    length = self.length
+    until idx == length
+      yield self[idx], idx
+      idx += 1
+    end
     self
   end
 end
