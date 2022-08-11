@@ -19,7 +19,7 @@ module Enumerable
     self.my_each do |element|
       flag = false unless block.call(element)
     end
-    return flag
+    flag
   end
 
   def my_any?(&block)
@@ -27,11 +27,19 @@ module Enumerable
     self.my_each do |element|
       flag = true if block.call(element)
     end
-    return flag
+    flag
   end
 
   def my_none?(&block)
     !self.my_any?(&block)
+  end
+
+  def my_select(&block)
+    selected_elements = []
+    self.my_each do |element|
+      selected_elements << element if block.call(element)
+    end
+    selected_elements
   end
 
 end
