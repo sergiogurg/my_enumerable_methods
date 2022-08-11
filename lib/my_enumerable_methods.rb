@@ -1,5 +1,9 @@
 module Enumerable
   # Your code goes here
+  def my_each_with_index
+    yield
+    self
+  end
 end
 
 # You will first have to define my_each
