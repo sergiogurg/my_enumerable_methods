@@ -13,14 +13,23 @@ module Enumerable
     self
   end
 
-  def my_all?
+  def my_all?(&block)
     flag = true
     # binding.pry
     self.my_each do |element|
-      flag &&= yield element
+      flag = false unless block.call(element)
     end
     return flag
   end
+
+  def my_any?(&block)
+    flag = false
+    self.my_each do |element|
+      flag = true if block.call(element)
+    end
+    return flag
+  end
+
 end
 
 # You will first have to define my_each
