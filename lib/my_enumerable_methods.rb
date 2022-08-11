@@ -1,5 +1,8 @@
+require 'pry-byebug'
+
 module Enumerable
   # Your code goes here
+
   def my_each_with_index
     idx = 0
     length = self.length
@@ -8,6 +11,15 @@ module Enumerable
       idx += 1
     end
     self
+  end
+
+  def my_all?
+    flag = true
+    # binding.pry
+    self.my_each do |element|
+      flag &&= yield element
+    end
+    return flag
   end
 end
 
