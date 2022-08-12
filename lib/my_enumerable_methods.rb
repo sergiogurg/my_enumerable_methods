@@ -50,6 +50,14 @@ module Enumerable
     mapped_elements
   end
 
+  def my_inject(init_value, &block)
+    acumulator = init_value
+    self.my_each do |element|
+      acumulator = block.call(acumulator, element)
+    end
+    acumulator
+  end
+
 end
 
 # You will first have to define my_each
