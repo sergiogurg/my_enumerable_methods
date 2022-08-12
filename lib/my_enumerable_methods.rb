@@ -58,6 +58,12 @@ module Enumerable
     acumulator
   end
 
+  def my_count(&block)
+    return self.length unless block_given?
+
+    self.my_select(&block).length
+  end
+
 end
 
 # You will first have to define my_each
