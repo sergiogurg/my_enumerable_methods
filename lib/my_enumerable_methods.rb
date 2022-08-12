@@ -42,6 +42,14 @@ module Enumerable
     selected_elements
   end
 
+  def my_map(&block)
+    mapped_elements = []
+    self.my_each do |element|
+      mapped_elements << block.call(element)
+    end
+    mapped_elements
+  end
+
 end
 
 # You will first have to define my_each
